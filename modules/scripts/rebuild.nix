@@ -18,23 +18,30 @@ pkgs.writeShellScriptBin "rebuild" ''
     echo "Error: flake not found. ensure flake.nix exists in either $HOME/NixOS or /etc/nixos"
     exit 1
   fi
+
+  if [ -n "$1" ]; then
+    host="$1"
+  else
+    host=$(hostname)
+  fi
+
   echo -e "''${GREEN}Flake: $flake''${NC}"
-  echo -e "''${GREEN}Host: ${host}''${NC}"
+  echo -e "''${GREEN}Host: $host''${NC}"
   currentUser=$(logname)
 
   # replace username variable in variables.nix with $USER
-  sudo sed -i -e "s/username = \".*\"/username = \"$currentUser\"/" "$flake/hosts/${host}/variables.nix"
+  sudo sed -i -e "s/username = \".*\"/username = \"$currentUser\"/" "$flake/hosts/$hos}/variables.nix"
 
   if [ -f "/etc/nixos/hardware-configuration.nix" ]; then
-    cat "/etc/nixos/hardware-configuration.nix" | sudo tee "$flake/hosts/${host}/hardware-configuration.nix" >/dev/null
+    cat "/etc/nixos/hardware-configuration.nix" | sudo tee "$flake/hosts/$host/hardware-configuration.nix" >/dev/null
   else
-    sudo nixos-generate-config --show-hardware-config >"$flake/hosts/${host}/hardware-configuration.nix"
+    sudo nixos-generate-config --show-hardware-config >"$flake/hosts/$host/hardware-configuration.nix"
   fi
 
-  sudo git -C "$flake" add hosts/${host}/hardware-configuration.nix
+  sudo git -C "$flake" add hosts/$host/hardware-configuration.nix
 
   # nh os switch --hostname "${host}"
-  sudo nixos-rebuild switch --flake "$flake#${host}"
+  sudo nixos-rebuild switch --flake "$flake#$host"
 
   echo
   read -rsn1 -p"$(echo -e "''${GREEN}Press any key to continue''${NC}")"

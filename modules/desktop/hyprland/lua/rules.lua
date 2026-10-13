@@ -31,6 +31,7 @@ hl.layer_rule({
 hl.window_rule({
 	match = { class = "^([Ff]irefox)$" },
 	opacity = "1.00 1.00",
+	scroll_touchpad = 0.3,
 })
 hl.window_rule({
 	match = { class = "^([Zz]en(-beta|-browser)?)$" },

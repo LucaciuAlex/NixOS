@@ -1,0 +1,40 @@
+{
+  "qwen2.5": {
+    "name": "Qwen 2.5 (7B/32B/72B)",
+    "role": "Technical Execution & Algorithmic Specialist",
+    "proficiencies": {
+      "thinking_and_reasoning": "8.8/10 - Superior quantitative logic, mathematical reasoning (MATH), and complex multi-step state tracking.",
+      "code_generation_syntax": "9.2/10 - Outstanding performance on HumanEval and MBPP; exceptional code correctness and bracket/syntax accuracy across languages.",
+      "compiler_and_debugging": "8.5/10 - High accuracy at diagnosing stack traces, identifying edge-case syntax bugs, and resolving runtime memory/pointer errors.",
+      "functional_programming": "8.7/10 - Excellent parsing and generation of functional paradigms, domain-specific configs (Nix, Starlark), and declarative syntax.",
+      "hardware_and_embedded_c": "8.3/10 - Strong low-level memory and C/C++ hardware understanding, including register operations, microcontrollers (ESP32/AVR), and build scripts.",
+      "system_and_file_navigation": "8.0/10 - Solid knowledge of Linux utilities, bash/shell scripting, and directory structures, with minor tendency to favor dense inline scripts.",
+      "information_retrieval_web": "8.1/10 - Capable of processing raw unformatted text blocks and search engine dumps, though occasionally favors concise technical synthesis over broad summaries.",
+      "structured_output_json": "9.0/10 - Consistently adheres to strict schema constraints with minimal markdown wrapper noise, ideal for machine-to-machine API output."
+    },
+    "best_usecases": [
+      "Deterministic code generation, refactoring, and AST/Nix/declarative system configuration.",
+      "Embedded C/C++ firmware development, microcontroller logic, and hardware registry operations.",
+      "Executing sub-agent tasks requiring strict JSON/YAML outputs, code parsing, and structured state mutation."
+    ]
+  },
+  "llama3.1": {
+    "name": "Llama 3.1 (8B/70B/405B)",
+    "role": "System Orchestrator & Natural Language Reasoning Specialist",
+    "proficiencies": {
+      "thinking_and_reasoning": "8.6/10 - High contextual comprehension, abstract problem decomposition, and macro-level planning across complex multi-agent workflows.",
+      "code_generation_syntax": "7.8/10 - Competent generalist code generation, though slightly lower accuracy than Qwen on intricate or niche programming benchmarks.",
+      "compiler_and_debugging": "7.6/10 - Good high-level log analysis and logical error detection, though occasionally misses subtle syntax or type-level edge cases.",
+      "functional_programming": "7.2/10 - Reliable for standard functional patterns, but requires clearer prompting for strict declarative toolchain configurations like Nix.",
+      "hardware_and_embedded_c": "7.0/10 - Strong general system knowledge, though less specialized in vendor-specific embedded C micro-architectures.",
+      "system_and_file_navigation": "8.5/10 - Excellent grasp of POSIX environments, shell execution workflows, system administration tasks, and file tree operations.",
+      "information_retrieval_web": "8.9/10 - Outstanding long-context comprehension and search output synthesis, effectively filtering noise from raw web search dumps.",
+      "structured_output_json": "8.4/10 - Highly reliable when instructed using system prompts, but occasionally adds conversational markdown wrappers unless explicitly restrained."
+    },
+    "best_usecases": [
+      "Top-level orchestration, goal decomposition, and task allocation across downstream worker agents.",
+      "Processing, summarizing, and synthesizing messy web search dumps (SearXNG/Crawl) into structured knowledge.",
+      "System administration, shell script generation, and high-level architectural document writing."
+    ]
+  }
+}

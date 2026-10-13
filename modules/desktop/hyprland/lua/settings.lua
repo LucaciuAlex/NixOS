@@ -44,7 +44,8 @@ hl.config({
 			follow_mouse = 1,
 
 			touchpad = {
-				natural_scroll = false,
+				natural_scroll = true,
+				scroll_factor = 0.8,
 			},
 
 			tablet = {

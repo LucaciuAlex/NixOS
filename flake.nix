@@ -105,7 +105,7 @@
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       nixosConfigurations = {
         Default = mkHost "Default";
-        Singularity = mkHost "Singularity";
+        agentic = mkHost "Agentic";
       };
     };
 }

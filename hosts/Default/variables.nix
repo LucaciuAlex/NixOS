@@ -1,37 +1,37 @@
 {
-  username = "railgun"; # auto-set with install.sh, live-install.sh, and rebuild scripts.
+  username = "luchylex"; # auto-set with install.sh, live-install.sh, and rebuild scripts.
 
   # Desktop Environment
-  desktop = "hyprland"; # hyprland, i3, gnome, plasma6
+  desktop = "gnome"; # hyprland, i3, gnome, plasma
 
   # Theme & Appearance
   bar = "waybar"; # waybar, noctalia, wayle
   waybarTheme = "minimal"; # stylish, minimal
   sddmTheme = "jake_the_dog"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
-  defaultWallpaper = "evening-sky.webp"; # Change with SUPER + SHIFT + W (Hyprland)
-  hyprlockWallpaper = "kurzgesagt-galaxies.webp";
+  defaultWallpaper = "galaxy.webp"; # Change with SUPER + SHIFT + W (Hyprland)
+  hyprlockWallpaper = "galaxy.webp";
 
   # Default Applications
   terminal = "kitty"; # kitty, alacritty, wezterm
-  editor = "nixvim"; # nixvim, zed, vscode, helix, doom-emacs, nvchad, neovim
-  browser = "librewolf"; # librewolf, zen-beta, firefox, floorp
-  fileManager = "thunar"; # yazi, lf, thunar
-  shell = "zsh"; # bash, zsh
-  games = false; # Enable/Disable gaming module
+  editor = "vscode"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
+  browser = "firefox"; # zen-beta, firefox, floorp
+  fileManager = "yazi"; # yazi, lf, thunar
+  shell = "zsh"; # zsh, bash
+  games = true; # Enable/Disable gaming module
 
   # Hardware
   hostname = "nixos";
   videoDriver = "nvidia"; # nvidia, amdgpu, intel
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
-  bluetoothSupport = false; # Whether your motherboard supports bluetooth
-  batterySupport = false; # Whether device has a battery (laptop)
+  bluetoothSupport = true; # Whether your motherboard supports bluetooth
+  batterySupport = true; # Whether device has a battery (laptop)
 
   # Localization
-  timezone = "Europe/London";
+  timezone = "Europe/Bucharest";
   locale = "en_GB.UTF-8";
   clock24h = true;
-  kbdLayout = "gb";
-  kbdVariant = "extd";
-  consoleKeymap = "uk";
+  kbdLayout = "us";
+  kbdVariant = "";
+  consoleKeymap = "us";
   capslockAsESC = false;
 }
