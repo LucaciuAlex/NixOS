@@ -3,14 +3,18 @@ import os
 import sys
 import json
 import requests
+import re
 from datetime import datetime
 
 OLLAMA_URL = "http://127.0.0.1:11434/api/chat"
 LOG_FILE = "session_log.md"
 STATE_FILE = ".session_state.json"
 
+BLINK = lambda x: f"\033[32;5m {x} \033[0m"
+
 # resolve the path for the manifest file
 MANIFEST_PATH = os.environ.get("AGENT_MANIFEST_PATH", "models_manifest.json")
+SYS_PROMPT_PATH = os.environ.get("ORCHESTRATOR_SYSTEM_PROMPT_PATH", "models_manifest.json")
 
 def load_manifest():
     try:
@@ -22,21 +26,37 @@ def load_manifest():
 
 MANIFEST = load_manifest()
 
+def load_history():
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE, "r") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return []
+    return []
+
+def load_history():
+    if os.path.exists(STATE_FILE):
+        with open(STATE_FILE, "r") as f:
+            try:
+                return json.load(f)
+            except json.JSONDecodeError:
+                return []
+    return []
+
 def generate_arbitrator_system_prompt():
     manifest_str = json.dumps(MANIFEST, indent=2)
-    return f"""You are the Arbitrator inside a highly customized local NixOS Environment.
-Your only job is to analyze the user's input in the context of the conversation and select the best model from the available manifest to execute the task.
+    history_str = json.dumps(load_history(), indent=2)
+    try:
+        with open(SYS_PROMPT_PATH, "r") as f:
+            sysPrompt = f.read().replace('\n', ' ')
+            sysPrompt.replace("<<manifest_str>>", manifest_str)
+            sysPrompt.replace("<<conversation_history>>", history_str)
+            return sysPrompt
 
-Here is the Manifest of available Models and their specific proficiencies:
-{manifest_str}
-
-You must output your response in EXACTLY this JSON format (no other text, no markdown code blocks, no trailing commas):
-{{"reasoning": "Explain step-by-step why you chose this model based on its specific proficiencies and the user's intent.", "selected_model": "MODEL_ID_FROM_MANIFEST"}}
-
-CRITERIA:
-- Analyze the proficiencies (thinking, writing_code, navigating_internet, navigating_file_systems) of each model to match the exact demands of the prompt.
-- Choose the absolute best fit. If it is a mix, prioritize the model that covers the most critical bottleneck of the task.
-"""
+    except Exception as e:
+        print(f"❌ Error loading the system prompts and history {SYS_PROMPT_PATH}: {e}")
+        sys.exit(1)
 
 def setup_session_files():
     if not os.path.exists(LOG_FILE):
@@ -49,14 +69,7 @@ def setup_session_files():
         with open(STATE_FILE, "w") as f:
             json.dump([], f)
 
-def load_history():
-    if os.path.exists(STATE_FILE):
-        with open(STATE_FILE, "r") as f:
-            try:
-                return json.load(f)
-            except json.JSONDecodeError:
-                return []
-    return []
+
 
 def save_history(history):
     with open(STATE_FILE, "w") as f:
@@ -99,7 +112,7 @@ def main_loop():
 
     while True:
         try:
-            user_input = input("👤 You > ").strip()
+            user_input = input(">>>").strip()
         except (KeyboardInterrupt, EOFError):
             print("\n\n👋 Exiting session loop safely...")
             break
@@ -130,7 +143,7 @@ def main_loop():
                 decision = json.loads(clean_json)
                 reasoning = decision.get("reasoning", "No specific reasoning recorded.")
                 selected_model = decision.get("selected_model", "llama3.1:8b")
-                
+
                 # Double-check that the model selected actually exists in our manifest
                 if selected_model not in MANIFEST:
                     print(f"⚠️ Arbitrator hallucinated model ID '{selected_model}'. Falling back to Llama.")

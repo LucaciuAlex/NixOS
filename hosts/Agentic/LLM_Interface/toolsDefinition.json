@@ -1,0 +1,69 @@
+[
+    {
+        "type": "function",
+        "function": {
+            "name": "create_file",
+            "description": "Create a new file with specified content at a given path.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "file_path": {
+                        "type": "string",
+                        "description": "Target file path."
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "Text content to write."
+                    }
+                },
+                "required": [
+                    "file_path",
+                    "content"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "write_memory",
+            "description": "Save an important fact, note, or summary into the Obsidian memory vault.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Name of the markdown note file (e.g., 'user_preferences.md')."
+                    },
+                    "content": {
+                        "type": "string",
+                        "description": "The content to write into the memory note."
+                    }
+                },
+                "required": [
+                    "filename",
+                    "content"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "read_memory",
+            "description": "Read an existing memory note from the Obsidian vault.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "filename": {
+                        "type": "string",
+                        "description": "Name of the memory note to read."
+                    }
+                },
+                "required": [
+                    "filename"
+                ]
+            }
+        }
+    }
+]

@@ -1,6 +1,6 @@
 {
   "qwen2.5": {
-    "name": "Qwen 2.5 (7B/32B/72B)",
+    "name": "Qwen 2.5 7B",
     "role": "Technical Execution & Algorithmic Specialist",
     "proficiencies": {
       "thinking_and_reasoning": "8.8/10 - Superior quantitative logic, mathematical reasoning (MATH), and complex multi-step state tracking.",
@@ -19,7 +19,7 @@
     ]
   },
   "llama3.1": {
-    "name": "Llama 3.1 (8B/70B/405B)",
+    "name": "Llama 3.1 8B",
     "role": "System Orchestrator & Natural Language Reasoning Specialist",
     "proficiencies": {
       "thinking_and_reasoning": "8.6/10 - High contextual comprehension, abstract problem decomposition, and macro-level planning across complex multi-agent workflows.",

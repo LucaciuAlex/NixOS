@@ -10,6 +10,7 @@
     qbittorrent
     vlc
     doublecmd
+    nixfmt-rfc-style
 
     # All-in-one front-end for emulators 
     (retroarch.withCores (cores: with cores; [

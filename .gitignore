@@ -4,6 +4,7 @@ result
 result-*
 output-*
 dev-shells/*/flake.lock
+hosts/Agentic/LLM_Interface/A.I.Brain/
 
 .vscode
 *.log
