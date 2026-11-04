@@ -10,7 +10,6 @@
     qbittorrent
     vlc
     doublecmd
-    nixfmt-rfc-style
     nixfmt
 
     # All-in-one front-end for emulators

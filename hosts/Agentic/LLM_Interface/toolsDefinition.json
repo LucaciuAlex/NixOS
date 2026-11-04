@@ -14,11 +14,20 @@
                     "content": {
                         "type": "string",
                         "description": "Text content to write."
+                    },
+                    "encoding": {
+                        "type": "string",
+                        "description": "The encoding of the file. By default 'utf-8'. Only use this parameter if you want to change it to something else."
+                    },
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
                     }
                 },
                 "required": [
                     "file_path",
-                    "content"
+                    "content",
+                    "retrigger"
                 ]
             }
         }
@@ -26,23 +35,23 @@
     {
         "type": "function",
         "function": {
-            "name": "write_memory",
-            "description": "Save an important fact, note, or summary into the Obsidian memory vault.",
+            "name": "read_file",
+            "description": "Read the content of a file from a given path.",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "filename": {
+                    "file_path": {
                         "type": "string",
-                        "description": "Name of the markdown note file (e.g., 'user_preferences.md')."
+                        "description": "Target file path."
                     },
-                    "content": {
-                        "type": "string",
-                        "description": "The content to write into the memory note."
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
                     }
                 },
                 "required": [
-                    "filename",
-                    "content"
+                    "file_path",
+                    "retrigger"
                 ]
             }
         }
@@ -50,18 +59,119 @@
     {
         "type": "function",
         "function": {
-            "name": "read_memory",
-            "description": "Read an existing memory note from the Obsidian vault.",
+            "name": "self_git_status",
+            "description": "get the status of the current branch inside the internal git. can be used with the normal 'git status' parameters.",
             "parameters": {
                 "type": "object",
                 "properties": {
-                    "filename": {
+                    "parameters": {
                         "type": "string",
-                        "description": "Name of the memory note to read."
+                        "description": "parameters given to git status, written chained into a string with spacing. this is the rest of the command you would write in the terminal after git status ..., but is only affecting the internal git"
+                    },
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
                     }
                 },
                 "required": [
-                    "filename"
+                    "parameters",
+                    "retrigger"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "self_git_add",
+            "description": "Stage changes on the current branch inside the internal git. can be used with the normal 'git add' parameters.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "parameters": {
+                        "type": "string",
+                        "description": "parameters given to git add, like <filename> <filename> ..., written chained into a string with spacing. this is the rest of the command you would write in the terminal after git add ..., but is only affecting the internal git"
+                    },
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
+                    }
+                },
+                "required": [
+                    "parameters",
+                    "retrigger"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "self_git_reset",
+            "description": "used to reset files or the entire head in the internal git. can be used with the normal 'git reset' parameters.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "parameters": {
+                        "type": "string",
+                        "description": "parameters given to git reset, written chained into a string with spacing. this is the rest of the command you would write in the terminal after git reset ..., but is only affecting the internal git"
+                    },
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
+                    }
+                },
+                "required": [
+                    "parameters",
+                    "retrigger"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "self_git_commit",
+            "description": "Commit staged changes on the current branch inside the internal git. can be used with the normal 'git commit' parameters.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "parameters": {
+                        "type": "string",
+                        "description": "parameters given to git commit, like -m 'message', written chained into a string with spacing. this is the rest of the command you would write in the terminal after git commit ..., but is only affecting the internal git"
+                    },
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
+                    }
+                },
+                "required": [
+                    "parameters",
+                    "retrigger"
+                ]
+            }
+        }
+    },
+    {
+        "type": "function",
+        "function": {
+            "name": "self_git_checkout",
+            "description": "used to change branches inside the internal git. can be used with the normal 'git chackout' parameters.",
+            "parameters": {
+                "type": "object",
+                "properties": {
+                    "parameters": {
+                        "type": "string",
+                        "description": "parameters given to git checkout, written chained into a string with spacing. this is the rest of the command you would write in the terminal after git checkout ..., but is only affecting the internal git"
+                    },
+                    "retrigger": {
+                        "type": "integer",
+                        "description": "This is a meta tool, that allows you, the assistant, to continue working after a tool call. After planning, and executing some tools, you can see the output of the tools and continue performing tasks in the same round. Select if you want to continue the same round after the tool call. You can chose to continute with a new reasoning session to analyze the tools output, have minimal reasoning, just answer directly with no reasoning at all, or not retrigger at all. parameter can only have the following values: '-1': Do not retrigger. '0': No reasoning step, answer directly. '1': Minimal reasoning, quickly think about the tools output. '2': With reasoning, in which you adjust the planning according to the previous tools output."
+                    }
+                },
+                "required": [
+                    "parameters",
+                    "retrigger"
                 ]
             }
         }

@@ -77,6 +77,11 @@
               pip
               requests
               transformers
+              langchain
+              langchain-ollama
+              langchain-chroma
+              pandas
+              ollama
 
               # Add whatever else you'd like here.
               # pkgs.basedpyright
