@@ -46,6 +46,7 @@ in
   };
   users = {
     mutableUsers = true;
+
     users.${username} = {
       isNormalUser = true;
       initialPassword = "123";
@@ -66,6 +67,15 @@ in
       ];
       shell = pkgs.${shell};
       ignoreShellProgramCheck = true;
+    };
+
+    # FAILSAFE USER #
+    users.admin = {
+      isNormalUser = true;
+      description = "Emergency recovery user";
+      extraGroups = [ "wheel" ];
+      hashedPassword = "$6$ejDsUyDkNP0P1D8P$TSyg/wrMYY.eECjKmDbqje6/Pe5enjDbeHFbGlFr1dy0OykwuTiHfbwOXR3O1pSPadGlW/BzNXLwx8TO1uCtE.";
+      shell = pkgs.bashInteractive;
     };
   };
   nix.settings.allowed-users = [ "${username}" ];
