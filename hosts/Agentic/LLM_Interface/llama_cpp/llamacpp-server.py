@@ -165,7 +165,14 @@ server = Llamacpp_server()
 
 server.start_server(32)
 
-server.stream_chat("hello")
 
+while True:
+    user_input = input("\n>>> ").strip()
+    if user_input.lower() in ["exit", "/end"]:
+        print("\n👋 Exiting session loop safely...")
+        break
+    elif not user_input:
+        continue
 
-
+    # print("\n[Service] Sending prompt to llama-server for streaming response...\n")
+    server.stream_chat(user_input)

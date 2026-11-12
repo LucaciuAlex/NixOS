@@ -2,7 +2,7 @@
   username = "luchylex"; # auto-set with install.sh, live-install.sh, and rebuild scripts.
 
   # Desktop Environment
-  desktop = "gnome"; # hyprland, i3, gnome, plasma
+  desktop = "hyprland"; # hyprland, i3, gnome, plasma
 
   # Theme & Appearance
   bar = "waybar"; # waybar, wayle, hyprpanel, noctalia-shell, caelestia-shell
@@ -15,7 +15,7 @@
   terminal = "kitty"; # kitty, alacritty, wezterm
   editor = "vscode"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
   browser = "firefox"; # zen-beta, firefox, floorp
-  fileManager = "yazi"; # yazi, lf, thunar
+  fileManager = "nautilus"; # yazi, lf, thunar
   shell = "zsh"; # zsh, bash
   games = true; # Enable/Disable gaming module
 
@@ -35,3 +35,4 @@
   consoleKeymap = "us";
   capslockAsESC = false;
 }
+

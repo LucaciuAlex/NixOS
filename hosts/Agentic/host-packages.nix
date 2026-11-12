@@ -11,6 +11,7 @@
     vlc
     doublecmd
     nixfmt
+    
 
     # All-in-one front-end for emulators
     (retroarch.withCores (

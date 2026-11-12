@@ -81,7 +81,6 @@ let
     sudo systemctl stop llama-custom-server
   '';
 
-
   # Wrapper runner script for systemd to parse runtime settings dynamically
   llamaServerRunner = pkgs.writeShellScript "llama-server-runner" ''
     if [ -f /var/lib/llama/server.conf ]; then
@@ -93,7 +92,7 @@ let
     exec ${pkgs.llama-cpp.override { cudaSupport = true; }}/bin/llama-server \
       --host 127.0.0.1 \
       --port 1234 \
-      --model /var/lib/llama/current-model.gguf
+      --model /var/lib/llama/current-model.gguf \
       --n-gpu-layers "$GPU_LAYERS" \
       --flash-attn on \
       --ctx-size 8192 \
