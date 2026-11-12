@@ -19,10 +19,9 @@ in
     ./programs/rofi
     ./programs/hypridle
     ./programs/hyprlock
+    ./programs/uniclipboard
   ]
-  ++ optional (
-    bar == "waybar"
-  ) ./programs/swaync;
+  ++ optional (bar == "waybar") ./programs/swaync;
 
   # Dependencies
   environment.systemPackages = with pkgs; [

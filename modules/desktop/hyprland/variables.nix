@@ -2,6 +2,7 @@
   host,
   lib,
   pkgs,
+  inputs,
   ...
 }:
 let
@@ -67,6 +68,7 @@ in
             kbdLayout = "${kbdLayout}"
             kbdVariant = "${kbdVariant}"
           '';
+
         };
       }
     )

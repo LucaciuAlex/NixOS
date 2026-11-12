@@ -12,7 +12,7 @@
   hyprlockWallpaper = "galaxy.webp";
 
   # Default Applications
-  terminal = "kitty"; # kitty, alacritty, wezterm
+  terminal = "alacritty"; # kitty, alacritty, wezterm
   editor = "vscode"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
   browser = "firefox"; # zen-beta, firefox, floorp
   fileManager = "nautilus"; # yazi, lf, thunar
