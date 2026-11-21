@@ -900,6 +900,7 @@
         "plasma-manager": "plasma-manager",
         "spicetify-nix": "spicetify-nix",
         "thunderbird-catppuccin": "thunderbird-catppuccin",
+        "uniclipboard": "uniclipboard",
         "zen-browser": "zen-browser"
       }
     },
@@ -984,6 +985,26 @@
       "original": {
         "owner": "catppuccin",
         "repo": "thunderbird",
+        "type": "github"
+      }
+    },
+    "uniclipboard": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1794473852,
+        "narHash": "sha256-kUJPRPhi3Y1KjeRJmC+/enHWxMMpc6tPWjXoLnLVyJc=",
+        "owner": "UniClipboard",
+        "repo": "UniClipboard",
+        "rev": "c6483d73c7a0234be68571fdb5fa3d38a17c4871",
+        "type": "github"
+      },
+      "original": {
+        "owner": "UniClipboard",
+        "repo": "UniClipboard",
         "type": "github"
       }
     },

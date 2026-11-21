@@ -4,6 +4,7 @@
   programs = {
     fuse.userAllowOther = true;
     mtr.enable = true;
+    nix-ld.enable = true;
     gnupg.agent = {
       enable = true;
       enableSSHSupport = true;
@@ -36,18 +37,21 @@
     tldr # Improved Man
     unrar # Tool For Handling .rar Files
     unzip # Tool For Handling .zip Files
+    cowsay # Great Fun Terminal Program
+    ffmpeg # Terminal Video / Audio Editing
+    socat # Needed For Screenshots
+    wget # Tool For Fetching Files With Links
+    lolcat # Add Colors To Your Terminal Command Output
+
     # aider-chat # AI in terminal (Optional: Client only)
     # cmatrix # Matrix Movie Effect In Terminal
-    # cowsay # Great Fun Terminal Program
     # duf # Utility For Viewing Disk Usage In Terminal
     # dysk # Disk space util nice formattting
-    # ffmpeg # Terminal Video / Audio Editing
     # gemini-cli # CLI AI client ONLY (optional)
     # glxinfo # needed for inxi diag util
     # inxi # CLI System Information Tool
     # libsForQt5.qt5.qtgraphicaleffects # Sddm Dependency (Old)
     # libnotify # For Notifications
-    # lolcat # Add Colors To Your Terminal Command Output
     # lshw # Detailed Hardware Information
     # mpv # Incredible Video Player
     # ncdu # Disk Usage Analyzer With Ncurses Interface
@@ -59,13 +63,11 @@
     # picard # For Changing Music Metadata & Getting Cover Art
     # pkg-config # Wrapper Script For Allowing Packages To Get Info On Others
     # rhythmbox # audio player
-    # socat # Needed For Screenshots
     # usbutils # Good Tools For USB Devices
     # uwsm # Universal Wayland Session Manager (optional must be enabled)
     # v4l-utils # Used For Things Like OBS Virtual Camera
     # warp-terminal # Terminal with AI support build in
     # waypaper # Change wallpaper
-    # wget # Tool For Fetching Files With Links
     # ytmdl # Tool For Downloading Audio From YouTube
 
     # devenv

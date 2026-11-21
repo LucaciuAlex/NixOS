@@ -36,6 +36,7 @@ in
     playerctl
     pamixer
     btop
+    xkill
   ];
 
   systemd.user.services.hyprpolkitagent = {

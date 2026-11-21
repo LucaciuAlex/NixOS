@@ -85,7 +85,18 @@ hl.window_rule({
 hl.window_rule({
 	match = { class = "^(kitty|[Aa]lacritty|org.wezfurlong.wezterm)$" },
 	opacity = "0.80 0.70",
+	float = true,
+	center = true,
+	size = "33% 90%",
 })
+hl.window_rule({
+	match = { class = "^(btop-monitor)$" },
+	opacity = "0.80 0.70",
+	float = true,
+	center = true,
+	size = "33% 90%",
+})
+
 hl.window_rule({
 	match = { class = "^(nvim-wrapper)$" },
 	opacity = "0.80 0.70",

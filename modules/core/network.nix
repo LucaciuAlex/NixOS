@@ -10,7 +10,9 @@ in
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ ];
+      allowedTCPPorts = [
+        42720 # uniclipboard ../desktop/hyprland/programs/uniclipboard    ];
+      ];
       allowedUDPPorts = [ ];
     };
   };

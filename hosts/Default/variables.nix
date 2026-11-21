@@ -2,25 +2,25 @@
   username = "luchylex"; # auto-set with install.sh, live-install.sh, and rebuild scripts.
 
   # Desktop Environment
-  desktop = "gnome"; # hyprland, i3, gnome, plasma
+  desktop = "hyprland"; # hyprland, i3, gnome, plasma
 
   # Theme & Appearance
-  bar = "waybar"; # waybar, noctalia, wayle
+  bar = "waybar"; # waybar, wayle, hyprpanel, noctalia-shell, caelestia-shell
   waybarTheme = "minimal"; # stylish, minimal
-  sddmTheme = "jake_the_dog"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
+  sddmTheme = "black_hole"; # astronaut, black_hole, purple_leaves, jake_the_dog, hyprland_kath
   defaultWallpaper = "galaxy.webp"; # Change with SUPER + SHIFT + W (Hyprland)
   hyprlockWallpaper = "galaxy.webp";
 
   # Default Applications
-  terminal = "kitty"; # kitty, alacritty, wezterm
+  terminal = "alacritty"; # kitty, alacritty, wezterm
   editor = "vscode"; # nixvim, vscode, helix, doom-emacs, nvchad, neovim
   browser = "firefox"; # zen-beta, firefox, floorp
-  fileManager = "yazi"; # yazi, lf, thunar
+  fileManager = "nautilus"; # yazi, lf, thunar
   shell = "zsh"; # zsh, bash
   games = true; # Enable/Disable gaming module
 
   # Hardware
-  hostname = "nixos";
+  hostname = "BareMetal";
   videoDriver = "nvidia"; # nvidia, amdgpu, intel
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
   bluetoothSupport = true; # Whether your motherboard supports bluetooth
@@ -35,3 +35,4 @@
   consoleKeymap = "us";
   capslockAsESC = false;
 }
+

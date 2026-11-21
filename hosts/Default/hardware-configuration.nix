@@ -13,6 +13,23 @@
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
+  # remote nasty server
+  boot.supportedFilesystems = [ "nfs" "bcachefs" ];
+
+  # Mount the remote NASty directory locally to /fs
+  fileSystems."/NASty" = {
+    device = "192.168.1.7:/fs/Cloud/myCloud";
+    fsType = "nfs";
+    options = [ 
+      "x-systemd.automount" 
+      "noauto" 
+      "nofail" 
+      "soft" 
+      "timeo=30" 
+      "retrans=2"
+    ];
+  };
+
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/ea537a6c-7729-4fb9-9663-d40116d98449";
       fsType = "btrfs";

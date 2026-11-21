@@ -66,6 +66,10 @@
       url = "github:nix-community/nix4nvchad";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    uniclipboard = {
+      url = "github:UniClipboard/UniClipboard";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -104,7 +108,7 @@
       templates = import ./dev-shells;
       formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-tree);
       nixosConfigurations = {
-        Default = mkHost "Default";
+        default = mkHost "Default";
         agentic = mkHost "Agentic";
       };
     };
