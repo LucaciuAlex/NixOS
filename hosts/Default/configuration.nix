@@ -17,7 +17,7 @@ in
     ../../modules/core/hardware.nix
     ../../modules/core/network.nix
     ../../modules/core/dns.nix
-    ../../modules/core/mvpn.nix
+    ../../modules/core/mvpn.nix # Tailscale VPN for private network access
     ../../modules/core/nh.nix
     ../../modules/core/packages.nix
     ../../modules/core/printing.nix

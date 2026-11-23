@@ -20,7 +20,7 @@
   games = true; # Enable/Disable gaming module
 
   # Hardware
-  hostname = "BareMetal";
+  hostname = "nixOS";
   videoDriver = "nvidia"; # nvidia, amdgpu, intel
   nvidiaChannel = "legacy_580"; # stable, latest, beta, legacy_xxx
   bluetoothSupport = true; # Whether your motherboard supports bluetooth
@@ -35,4 +35,3 @@
   consoleKeymap = "us";
   capslockAsESC = false;
 }
-

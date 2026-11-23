@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   networking.firewall = {
     allowedTCPPorts = [
@@ -85,13 +85,11 @@
     };
     adguardhome = {
       enable = true;
-      host = "0.0.0.0";
-      port = 3005;
       mutableSettings = true;
       openFirewall = true;
       settings = {
         http = {
-          address = "127.0.0.1:3005";
+          address = lib.mkForce "127.0.0.1:3005";
         };
         querylog = {
           enabled = true;
